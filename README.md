@@ -22,4 +22,4 @@ Frontend starten:
 
 npm run dev
 
-Wichtig!! Sicherstellen das die pfade mit forwardslash (/), und nicht mit backslash (\) geschrieben werden!
+Wichtig!! Sicherstellen das die pfade mit forwardslash (/), und nicht mit backslash ( \ ) geschrieben werden!
