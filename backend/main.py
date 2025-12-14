@@ -22,9 +22,55 @@ def root():
 
 @app.get("/peak-time")
 def peak_time():
-    # Dummy-Daten zum Testen
+    # 1. Filtern: Standort Bahnhofstrasse (Nord)
+    df_f = df[df["location_name"] == "Bahnhofstrasse (Nord)"].copy()
+
+    # 2. Zeit aufbereiten
+    df_f["timestamp"] = pd.to_datetime(df_f["timestamp"])
+    df_f["date"] = df_f["timestamp"].dt.date
+    df_f["hour"] = df_f["timestamp"].dt.hour
+
+    # 3. Tagesgesamtmenge Erwachsene bestimmen
+    daily_totals = (
+        df_f
+        .groupby("date")["adult_pedestrians_count"]
+        .sum()
+        .reset_index()
+    )
+
+    # 4. Peak-Tag finden
+    peak_day_row = daily_totals.loc[
+        daily_totals["adult_pedestrians_count"].idxmax()
+    ]
+    peak_date = peak_day_row["date"]
+
+    # 5. Stundenwerte für genau diesen Tag
+    hourly_peak_day = (
+        df_f[df_f["date"] == peak_date]
+        .groupby("hour")["adult_pedestrians_count"]
+        .sum()
+        .reset_index()
+        .sort_values("hour")
+    )
+
+    # 6. Peak-Stunde an diesem Tag
+    peak_hour_row = hourly_peak_day.loc[
+        hourly_peak_day["adult_pedestrians_count"].idxmax()
+    ]
+
     return {
-        "hour": 17,
-        "count": 1243
+        "date": str(peak_date),
+        "peak_hour": int(peak_hour_row["hour"]),
+        "peak_count": int(peak_hour_row["adult_pedestrians_count"]),
+        "hourly_data": hourly_peak_day.rename(
+            columns={"adult_pedestrians_count": "count"}
+        ).to_dict(orient="records")
     }
+
+
+
+
+
+
+
 
