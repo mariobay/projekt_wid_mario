@@ -32,4 +32,4 @@ Aufbau Webaplikation
 Fokusfrage: im oberen Teil der Web-App wird die Fokusfrage (siehe oben) beantwortet.
 
 Im unteren Teil der Web-App können die User:innen die Daten erkundschaften. Mittls der Eingabe von Datum, Uhrzeit, Location und Typologie (Kinder/Erwachsene) kann für jeden vorhandenen Datenpunkt eine Antwort ausgegeben werden. Wählt man ein Datum, welches nicht im Zeitraum
-(28.09.2021-30.07.2025) vorhanden ist, wird angegeben, dass keine Daten verfügbar sind.
+(28.09.2021-30.07.2025) vorhanden ist, wird angegeben dass keine Daten verfügbar sind.
