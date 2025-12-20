@@ -26,7 +26,7 @@ npm run dev
 
 Wichtig!! Sicherstellen das die pfade mit forwardslash (/), und nicht mit backslash ( \ ) geschrieben werden!
 
-Bei Problemen beim starten, gerne bei mir auf Teams oder unter mario.bay@students.fhnw.ch melden, ich bin die meisste Zeit während der ersten Januarwoche an der FHNW am lernen.
+Bei Problemen beim starten, gerne bei mir auf Teams oder unter mario.bay@students.fhnw.ch melden, ich bin die meiste Zeit während der ersten Januarwoche an der FHNW am lernen.
 
 Aufbau Webaplikation
 Fokusfrage: im oberen Teil der Web-App wird die Fokusfrage (siehe oben) beantwortet.
