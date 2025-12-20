@@ -67,6 +67,51 @@ def peak_time():
         ).to_dict(orient="records")
     }
 
+@app.get("/explore")
+def explore(
+    date: str,
+    hour: int,
+    location: str,
+    category: str
+):
+    location_map = {
+        "Nord": "Bahnhofstrasse (Nord)",
+        "Mitte": "Bahnhofstrasse (Mitte)",
+        "Süd": "Bahnhofstrasse (Süd)"
+    }
+
+    location_name = location_map[location]
+
+    if category == "Erwachsene":
+        count_column = "adult_pedestrians_count"
+    else:
+        count_column = "child_pedestrians_count"
+
+    df_f = df[df["location_name"] == location_name].copy()
+    df_f["timestamp"] = pd.to_datetime(df_f["timestamp"])
+
+    df_f = df_f[
+        (df_f["timestamp"].dt.date == pd.to_datetime(date).date()) &
+        (df_f["timestamp"].dt.hour == hour)
+    ]
+
+    # 🔹 NEU: Keine Daten vorhanden
+    if df_f.empty:
+        return {
+            "has_data": False
+        }
+
+    total = int(df_f[count_column].sum())
+
+    return {
+        "has_data": True,
+        "date": date,
+        "hour": hour,
+        "location": location,
+        "category": category,
+        "count": total
+    }
+
 
 
 
