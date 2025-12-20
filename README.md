@@ -5,17 +5,17 @@ Fokusfrage: Wann (Datum und Uhrzeit) laufen am Standort Bahnhofstrasse Nord am m
 App Starten
 
 Backend:
-In GitBash console, ins backend Directory wechseln:
+In GitBash Console, ins backend Directory wechseln:
 
 cd C:/Schule/S5/Webprog/projekt_wid_mario/backend
 (oder äquivalentes lokales Directory)
 
-Backend starrten:
+Backend starten:
 
 uvicorn main:app --reload
 
 Frontend:
-In GitBash console, ins frontend Directory wechseln:
+In GitBash Console, ins frontend Directory wechseln:
 
 cd /c/Schule/S5/Webprog/projekt_wid_mario/frontend/wid-projekt-mario
 (oder äquivalentes lokales Directory)
@@ -24,7 +24,7 @@ Frontend starten:
 
 npm run dev
 
-Wichtig!! Sicherstellen das die pfade mit forwardslash (/), und nicht mit backslash ( \ ) geschrieben werden!
+Wichtig!! Sicherstellen dass die Pfade mit forwardslash (/), und nicht mit backslash ( \ ) geschrieben werden!
 
 Bei Problemen beim starten, gerne bei mir auf Teams oder unter mario.bay@students.fhnw.ch melden, ich bin die meiste Zeit während der ersten Januarwoche an der FHNW am lernen.
 
